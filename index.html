@@ -1,75 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futuristic Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Futuristic Calculator</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <body>
+    <div class="stars" id="starsContainer"></div>
 
-<body>
-  <div class="stars" id="starsContainer"></div>
+    <div class="calculator">
+      <!-- Display screen for calculator -->
+      <input type="text" id="display" value="0" readonly />
 
-  <div class="calculator">
-    <!-- Display screen for calculator -->
-    <input type="text" id="display" value="0" readonly>
+      <!-- Calculator buttons -->
+      <div class="buttons">
+        <button class="btn clear" onclick="clearDisplay()">C</button>
+        <button class="btn" onclick="deleteLastChar()">⌫</button>
+        <button class="btn operator" onclick="appendToDisplay('/')">÷</button>
+        <button class="btn operator" onclick="appendToDisplay('*')">x</button>
 
-    <!-- Calculator buttons -->
-    <div class="buttons">
-      <button class="btn clear" onclick="clearDisplay()">C</button>
-      <button class="btn" onclick="deleteLastChar()">⌫</button>
-      <button class="btn operator" onclick="appendToDisplay('/')">÷</button>
-      <button class="btn operator" onclick="appendToDisplay('*')">x</button>
+        <button class="btn" onclick="appendToDisplay('7')">7</button>
+        <button class="btn" onclick="appendToDisplay('8')">8</button>
+        <button class="btn" onclick="appendToDisplay('9')">9</button>
+        <button class="btn operator" onclick="appendToDisplay('-')">-</button>
 
-      <button class="btn" onclick="appendToDisplay('7')">7</button>
-      <button class="btn" onclick="appendToDisplay('8')">8</button>
-      <button class="btn" onclick="appendToDisplay('9')">9</button>
-      <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+        <button class="btn" onclick="appendToDisplay('4')">4</button>
+        <button class="btn" onclick="appendToDisplay('5')">5</button>
+        <button class="btn" onclick="appendToDisplay('6')">6</button>
+        <button class="btn operator" onclick="appendToDisplay('+')">+</button>
 
-      <button class="btn" onclick="appendToDisplay('4')">4</button>
-      <button class="btn" onclick="appendToDisplay('5')">5</button>
-      <button class="btn" onclick="appendToDisplay('6')">6</button>
-      <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+        <button class="btn" onclick="appendToDisplay('1')">1</button>
+        <button class="btn" onclick="appendToDisplay('2')">2</button>
+        <button class="btn" onclick="appendToDisplay('3')">3</button>
+        <button class="btn" onclick="appendToDisplay('0')">0</button>
 
-      <button class="btn" onclick="appendToDisplay('1')">1</button>
-      <button class="btn" onclick="appendToDisplay('2')">2</button>
-      <button class="btn" onclick="appendToDisplay('3')">3</button>
-      <button class="btn" onclick="appendToDisplay('0')">0</button>
-
-      <button class="btn" onclick="appendToDisplay('.')">.</button>
-      <button class="btn equal" onclick="calculate()">=</button>
+        <button class="btn" onclick="appendToDisplay('.')">.</button>
+        <button class="btn equal" onclick="calculate()">=</button>
+      </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-  <script>
-    // Starry background generation
-    function createStars() {
-      const starsContainer = document.getElementById('starsContainer');
-      const starCount = window.innerWidth < 768 ? 50 : 100;
+    <script src="script.js"></script>
+    <script>
+      // Starry background generation
+      function createStars() {
+        const starsContainer = document.getElementById("starsContainer");
+        const starCount = window.innerWidth < 768 ? 50 : 100;
 
-      for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement("div");
+          star.classList.add("star");
 
-        // Randomize star properties
-        star.style.width = `${Math.random() * 3}px`;
-        star.style.height = star.style.width;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
+          // Randomize star properties
+          star.style.width = `${Math.random() * 3}px`;
+          star.style.height = star.style.width;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.left = `${Math.random() * 100}%`;
 
-        // Varying opacity and animation delay
-        star.style.animationDelay = `${Math.random() * 3}s`;
+          // Varying opacity and animation delay
+          star.style.animationDelay = `${Math.random() * 3}s`;
 
-        starsContainer.appendChild(star);
+          starsContainer.appendChild(star);
+        }
       }
-    }
 
-    // Create stars on load and resize
-    createStars();
-    window.addEventListener('resize', createStars);
-  </script>
-</body>
-
+      // Create stars on load and resize
+      createStars();
+      window.addEventListener("resize", createStars);
+    </script>
+  </body>
 </html>
